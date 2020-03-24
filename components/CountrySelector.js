@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import useStats from '../utils/useStats';
+
 import Stats from './Stats';
+import useStats from '../utils/useStats';
 
 export default function CountrySelector() {
+  const [selectedCountry, setSelectedCountry] = useState('AUS');
   const { stats: countries, loading, error } = useStats(
     'https://covid19.mathdro.id/api/countries'
   );
-  const [selectedCountry, setSelectedCountry] = useState('AUS');
 
   if (!countries) return <p>Loading...</p>;
   if (loading) return <p>Loading...</p>;
@@ -20,10 +21,10 @@ export default function CountrySelector() {
           return (
             <option
               key={code}
-              selected={selectedCountry === countries.iso3[code]}
-              value={countries.iso3[code]}
+              selected={selectedCountry === code.iso3}
+              value={code.iso3}
             >
-              {country}
+              {code.name}
             </option>
           );
         })}

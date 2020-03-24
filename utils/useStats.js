@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 
 export default function useStats(url) {
-  const [stats, setStats] = useState();
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
+  const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState();
+
   useEffect(() => {
     async function fetchData() {
       setError();
@@ -17,5 +18,6 @@ export default function useStats(url) {
     }
     fetchData();
   }, [url]);
+
   return { stats, loading, error };
 }

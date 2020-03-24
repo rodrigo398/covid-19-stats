@@ -1,11 +1,6 @@
 import styled from 'styled-components';
-import useStats from '../utils/useStats';
 
-const StatGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
-`;
+import useStats from '../utils/useStats';
 
 const StatBlock = styled.div`
   background: #f2f2f2;
@@ -16,6 +11,12 @@ const StatBlock = styled.div`
   align-items: center;
   justify-items: center;
   text-align: center;
+`;
+
+const StatGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
 `;
 
 export default function Stats({ url }) {
